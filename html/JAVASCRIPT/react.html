@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>前端框架</a><ul></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul></ul></li><li><a href="#"><span></span>Git</a><ul><li><a href="../../index.html">git安装</a></li><li><a href="../../index.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../index.html">ES6</a></li><li><a href="../../index.html">webpack</a></li><li><a href="../../index.html">javascript</a></li><li><a href="../../index.html">react</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t01. 什么是react">1. 什么是react</a></li><li><a href="#t12. 安装react">2. 安装react</a></li><li><a href="#t23. 直接在浏览器中使用React">3. 直接在浏览器中使用React</a></li><li><a href="#t34. ReactDOM.render">4. ReactDOM.render</a><ul><li><a href="#t44.1. index.html">4.1. index.html</a></li><li><a href="#t54.2. js/1.react.js">4.2. js/1.react.js</a></li></ul></li><li><a href="#t65. JSX 语法">5. JSX 语法</a></li><li><a href="#t76. 组件(React.createClass)">6. 组件(React.createClass)</a><ul><li><a href="#t86.1 定义组件">6.1 定义组件</a></li><li><a href="#t96.2 组件的属性">6.2 组件的属性</a></li><li><a href="#t106.1 PropTypes">6.1 PropTypes</a></li><li><a href="#t116.2 this.props.children">6.2 this.props.children</a></li><li><a href="#t126.3 state状态">6.3 state状态</a></li><li><a href="#t136.3 属性和状态">6.3 属性和状态</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t01. &#x4EC0;&#x4E48;&#x662F;react">1. &#x4EC0;&#x4E48;&#x662F;react <a href="#t01. &#x4EC0;&#x4E48;&#x662F;react"> # </a></h2>
+<p>React &#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;<span class="text-danger">&#x6784;&#x5EFA;&#x7528;&#x6237;&#x754C;&#x9762;</span>&#x7684;JavaScript<span class="text-danger">&#x5E93;</span></p>
+<h2 id="t12. &#x5B89;&#x88C5;react">2. &#x5B89;&#x88C5;react <a href="#t12. &#x5B89;&#x88C5;react"> # </a></h2>
+<pre><code class="lang-sh">$ bower install react babel --save
+</code></pre>
+<h2 id="t23. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React">3. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React <a href="#t23. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React"> # </a></h2>
+<pre><code class="lang-javascript">  &lt;script src=<span class="hljs-string">&quot;../bower_components/react/react.js&quot;</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;../bower_components/react/react-dom.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;../bower_components/babel/browser.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/babel&quot;</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;index.js&quot;</span>/&gt;</span><span class="undefined">
+</span></span></code></pre>
+<ul>
+<li>react.js &#x662F; React &#x7684;<em>&#x6838;&#x5FC3;</em>&#x5E93;</li>
+<li>react-dom.js &#x662F;&#x63D0;&#x4F9B;&#x4E0E;<em>DOM</em>&#x76F8;&#x5173;&#x7684;&#x529F;&#x80FD;,&#x4F1A;&#x5728;window&#x4E0B;&#x589E;&#x52A0;<code>ReactDOM</code>&#x5C5E;&#x6027;</li>
+<li>browser.js &#x7684;&#x4F5C;&#x7528;&#x662F;&#x5C06;<code>JSX</code>&#x8BED;&#x6CD5;&#x8F6C;&#x4E3A;<code>JavaScript</code>&#x8BED;&#x6CD5;</li>
+</ul>
+<blockquote>
+<p><code>script</code>&#x4E2D;&#x7684;<code>type</code>&#x5C5E;&#x6027;&#x4E3A;<code>text/babel</code>,&#x56E0;&#x4E3A;React&#x72EC;&#x6709;&#x7684;JSX&#x8BED;&#x6CD5;,&#x8DDF;JavaScript&#x4E0D;&#x517C;&#x5BB9;</p>
+</blockquote>
+<h2 id="t34. ReactDOM.render">4. ReactDOM.render <a href="#t34. ReactDOM.render"> # </a></h2>
+<p><code>ReactDOM.render</code> &#x662F; <code>React</code> &#x7684;&#x6700;&#x57FA;&#x672C;&#x65B9;&#x6CD5;,&#x7528;&#x4E8E;&#x5C06;&#x6807;&#x7B7E;&#x6A21;&#x677F;&#x8F6C;&#x4E3A;HTML&#x8BED;&#x8A00;&#xFF0C;&#x5E76;&#x63D2;&#x5165;&#x6307;&#x5B9A;&#x7684;DOM&#x8282;&#x70B9;</p>
+<h3 id="t44.1. index.html">4.1. index.html <a href="#t44.1. index.html"> # </a></h3>
+<pre><code class="lang-diff"><span class="hljs-addition">+   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</span>
+<span class="hljs-addition">+   &lt;script type=&quot;text/babel&quot; src=&quot;js/1.react.js&quot;/&gt;</span>
+</code></pre>
+<h3 id="t54.2. js/1.react.js">4.2. js/1.react.js <a href="#t54.2. js/1.react.js"> # </a></h3>
+<pre><code class="lang-javascript">    ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>,
+        document.getElementById(&apos;app&apos;)
+    );
+</span></code></pre>
+<blockquote>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5C06;&#x4E00;&#x4E2A;h1&#x6807;&#x9898;&#xFF0C;&#x63D2;&#x5165;app&#x5143;&#x7D20;&#x5185;&#x90E8;</p>
+</blockquote>
+<h2 id="t65. JSX &#x8BED;&#x6CD5;">5. JSX &#x8BED;&#x6CD5; <a href="#t65. JSX &#x8BED;&#x6CD5;"> # </a></h2>
+<p>&#x662F;&#x4E00;&#x79CD;JS&#x548C;HTML&#x6DF7;&#x5408;&#x7684;&#x8BED;&#x6CD5;,&#x5C06;&#x7EC4;&#x4EF6;&#x7684;<em>&#x7ED3;&#x6784;</em>&#x3001;<em>&#x6570;&#x636E;</em>&#x751A;&#x81F3;<em>&#x6837;&#x5F0F;</em>&#x90FD;&#x805A;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x3002;</p>
+<ul>
+<li>&#x9047;&#x5230;HTML&#x6807;&#x7B7E;(&#x4EE5; &lt; &#x5F00;&#x5934;)&#xFF0C;&#x5C31;&#x7528;<em>HTML</em>&#x89C4;&#x5219;&#x89E3;&#x6790;</li>
+<li>&#x9047;&#x5230;&#x4EE3;&#x7801;&#x5757;(&#x4EE5; { &#x5F00;&#x5934;)&#xFF0C;&#x5C31;&#x7528;<em>JavaScript</em>&#x89C4;&#x5219;&#x89E3;&#x6790;</li>
+<li>&#x4F7F;&#x7528;&#x6837;&#x5F0F;&#x65F6;&#x53EF;&#x4EE5;&#x8BA9;style&#x7B49;&#x4E8E;&#x4E00;&#x4E2A;&#x6837;&#x5F0F;&#x5BF9;&#x8C61;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> persons = [<span class="hljs-string">&apos;&#x5218;&#x5FB7;&#x534E;&apos;</span>, <span class="hljs-string">&apos;&#x8303;&#x51B0;&#x51B0;&apos;</span>, <span class="hljs-string">&apos;&#x90ED;&#x8DC3;&apos;</span>];
+<span class="hljs-keyword">var</span> style = {color:<span class="hljs-string">&apos;red&apos;</span>};
+ReactDOM.render(
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+  {
+    persons.map(function (person) {
+      return <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{style}</span>&gt;</span>Hello, {person}!<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    })
+  }
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>,
+  document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+<h2 id="t76. &#x7EC4;&#x4EF6;(React.createClass)">6. &#x7EC4;&#x4EF6;(React.createClass) <a href="#t76. &#x7EC4;&#x4EF6;(React.createClass)"> # </a></h2>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F88;&#x76F4;&#x89C2;&#x7684;&#x5C06;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x9875;&#x9762;&#x5206;&#x5272;&#x6210;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7EC4;&#x4EF6;<br>&#x518D;&#x5C06;&#x8FD9;&#x4E9B;&#x72EC;&#x7ACB;&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x9875;&#x9762;&#x3002;<br>&#x8FD9;&#x6837;&#x65E2;&#x51CF;&#x5C11;&#x4E86;&#x903B;&#x8F91;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x53C8;&#x5B9E;&#x73B0;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x91CD;&#x7528;</p>
+<ul>
+<li>&#x53EF;&#x7EC4;&#x5408;&#xFF1A;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x548C;&#x5176;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5D4C;&#x5957;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;</li>
+<li>&#x53EF;&#x91CD;&#x7528;&#xFF1A;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x662F;&#x5177;&#x6709;&#x72EC;&#x7ACB;&#x529F;&#x80FD;&#x7684;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x4F7F;&#x7528;&#x5728;&#x591A;&#x4E2A;&#x573A;&#x666F;&#x4E2D;</li>
+<li>&#x53EF;&#x7EF4;&#x62A4;&#xFF1A;&#x6BCF;&#x4E2A;&#x5C0F;&#x7684;&#x7EC4;&#x4EF6;&#x4EC5;&#x4EC5;&#x5305;&#x542B;&#x81EA;&#x8EAB;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x66F4;&#x5BB9;&#x6613;&#x88AB;&#x7406;&#x89E3;&#x548C;&#x7EF4;&#x62A4;</li>
+</ul>
+<h3 id="t86.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;">6.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6; <a href="#t86.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;"> # </a></h3>
+<p>React&#x5141;&#x8BB8;&#x5C06;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x6210;<span class="text-danger">&#x7EC4;&#x4EF6;</span>&#xFF0C;&#x7136;&#x540E;&#x50CF;&#x63D2;&#x5165;&#x666E;&#x901A;<span class="text-danger">HTML&#x6807;&#x7B7E;</span>&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x7F51;&#x9875;&#x4E2D;&#x63D2;&#x5165;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;</p>
+<ul>
+<li>&#x7EC4;&#x4EF6;&#x7C7B;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;&#x5FC5;&#x987B;<span class="text-danger">&#x5927;&#x5199;</span>  {:&amp;.rollIn}</li>
+<li>&#x7EC4;&#x4EF6;&#x7C7B;&#x80FD;&#x4E14;&#x53EA;&#x80FD;&#x5305;&#x542B;<span class="text-danger">&#x4E00;&#x4E2A;&#x9876;&#x5C42;&#x6807;&#x7B7E;</span> </li>
+<li>&#x7EC4;&#x4EF6;<span class="text-danger">&#x5B9E;&#x4F8B;&#x4E2D;&#x7684;&#x5C5E;&#x6027;</span>&#x53EF;&#x4EE5;&#x5728;&#x7EC4;&#x4EF6;&#x7C7B;&#x4E2D;&#x901A;&#x8FC7;<code>this.props.&#x5C5E;&#x6027;&#x540D;</code>&#x83B7;&#x53D6; </li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Message = React.createClass({
+    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>;</span>
+    }
+});
+ReactDOM.render(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Message</span>/&gt;</span>,
+    document.getElementById(&apos;app&apos;)
+);
+</span></code></pre>
+<h3 id="t96.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;">6.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027; <a href="#t96.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;"> # </a></h3>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> Message = React.createClass({
+        propTypes: {
+            msg: React.PropTypes.string.isRequired,
+        },
+
+        render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span> {this.props.msg} <span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>;</span>
+        }
+    });
+
+    ReactDOM.render(
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Message</span> <span class="hljs-attribute">msg</span>=<span class="hljs-value">&quot;&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;&quot;</span> /&gt;</span>,
+        document.getElementById(&apos;app&apos;)
+    );
+</span></code></pre>
+<blockquote>
+<p>React&#x4E2D;&#x6570;&#x636E;&#x7684;&#x6D41;&#x5411;&#x662F;&#x5355;&#x5411;&#x7684;&#xFF0C;&#x5373;&#x4ECE;<span class="text-danger">&#x7236;&#x8282;&#x70B9;&#x6D41;&#x5411;&#x5B50;&#x8282;&#x70B9;</span>&#xFF08;&#x5B50;&#x7EC4;&#x4EF6;&#x53EA;&#x9700;&#x8981;&#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x83B7;&#x53D6;props&#x6E32;&#x67D3;&#x5373;&#x53EF;&#xFF09;
+getDefaultProps &#x5B9A;&#x4E49;&#x521D;&#x59CB;&#x5316;<code>props</code>&#x94A9;&#x5B50;&#x51FD;&#x6570;
+props &#x901A;&#x8FC7;<code>props</code>&#x53EF;&#x4EE5;&#x628A;&#x4EFB;&#x610F;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x5C5E;&#x6027;&#x4F20;&#x9012;&#x7ED9;&#x7EC4;&#x4EF6;
+&#x628A;props&#x5F53;&#x6210;&#x662F;&#x7EC4;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x540E;<span class="text-danger">&#x4E0D;&#x53D8;&#x7684;&#x6570;&#x636E;&#x548C;&#x5C5E;&#x6027;</span></p>
+</blockquote>
+<h3 id="t106.1 PropTypes">6.1 PropTypes <a href="#t106.1 PropTypes"> # </a></h3>
+<p>&#x7EC4;&#x4EF6;&#x7C7B;&#x7684;<code>PropTypes</code>&#x5C5E;&#x6027;&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x6765;&#x9A8C;&#x8BC1;&#x4F20;&#x5165;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x5426;&#x7B26;&#x5408;&#x8981;&#x6C42;</p>
+<pre><code> propTypes: {
+        title: React.PropTypes.string.isRequired,
+    }
+</code></pre><h3 id="t116.2 this.props.children">6.2 this.props.children <a href="#t116.2 this.props.children"> # </a></h3>
+<p><code>this.props</code>&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4E0E;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x4F8B;&#x5916;&#xFF0C;&#x5C31;&#x662F;<code>this.props.children</code>&#x5C5E;&#x6027;&#x3002;&#x5B83;&#x8868;&#x793A;&#x7EC4;&#x4EF6;&#x7684;<span class="text-danger">&#x6240;&#x6709;&#x5B50;&#x8282;&#x70B9;</span></p>
+<pre><code class="lang-javascript"> React.Children.map(<span class="hljs-keyword">this</span>.props.children, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">child</span>) </span>{
+                        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>{child}<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>;</span>
+                    })
+</code></pre>
+<h3 id="t126.3 state&#x72B6;&#x6001;">6.3 state&#x72B6;&#x6001; <a href="#t126.3 state&#x72B6;&#x6001;"> # </a></h3>
+<p>state &#x6BCF;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;state&#xFF0C;&#x4E00;&#x5F00;&#x59CB;&#x6709;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x72B6;&#x6001;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x6237;&#x4E92;&#x52A8;&#xFF0C;&#x5BFC;&#x81F4;<span class="text-danger">&#x72B6;&#x6001;&#x53D8;&#x5316;</span>&#xFF0C;&#x4ECE;&#x800C;&#x89E6;&#x53D1;<span class="text-danger">&#x91CD;&#x65B0;&#x6E32;&#x67D3;UI</span> </p>
+<blockquote>
+<p>state&#x5B58;&#x653E;&#x7684;&#x662F;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;&#xFF0C;<span class="text-danger">&#x5BB9;&#x6613;&#x53D8;&#x5316;</span>&#x7684;&#x7EC4;&#x4EF6;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x4E14;state&#x53EA;&#x5B58;&#x5728;&#x4E8E;&#x7EC4;&#x4EF6;&#x7684;&#x5185;&#x90E8;</p>
+</blockquote>
+<h3 id="t136.3 &#x5C5E;&#x6027;&#x548C;&#x72B6;&#x6001;">6.3 &#x5C5E;&#x6027;&#x548C;&#x72B6;&#x6001; <a href="#t136.3 &#x5C5E;&#x6027;&#x548C;&#x72B6;&#x6001;"> # </a></h3>
+<p> <code>this.props</code>&#x8868;&#x793A;&#x90A3;&#x4E9B;&#x4E00;&#x65E6;&#x5B9A;&#x4E49;&#xFF0C;&#x5C31;&#x4E0D;&#x518D;&#x6539;&#x53D8;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x800C;<code>this.state</code>&#x662F;&#x4F1A;&#x968F;&#x7740;&#x7528;&#x6237;&#x4E92;&#x52A8;&#x800C;&#x4EA7;&#x751F;&#x53D8;&#x5316;&#x7684;&#x7279;&#x6027;&#x3002;</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+<script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script>
+    var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+    var count =  bar/26/2;
+    var barHeight = $('.page-toc').outerHeight()
+    $('.page-toc li').eq(0).children('a').addClass('red');
+    var arr = [];
+    $("h2,h3").each(function () {
+        arr.push($(this).position().top);
+    });
+    function dark(){
+        var top =  Math.abs($('.page-toc > ul').position().top);
+        var cur = $(document).scrollTop();
+        for(var i = arr.length; i >=0;i--){
+            if(arr[i]<=cur){
+                break;
+            }
+        }
+        if(i===-1){
+            i = 0;
+        }
+        $('.page-toc li a').removeClass('red');
+        $('.page-toc li').eq(i).children('a').addClass('red');
+        if(i> arr.length-count){
+            $(' .page-toc > ul').css('top',-(barHeight-bar));
+            return;
+        }
+        if(i>count){
+            $(' .page-toc > ul').css('top',-26*(i-count));
+        }else{
+            $(' .page-toc > ul').css('top',0);
+        }
+    }
+    $(window).on('scroll',dark);
+</script>
+</html>

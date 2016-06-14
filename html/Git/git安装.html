@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>珠峰JS全栈</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                珠峰JS全栈
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>前端框架</a><ul></ul></li><li><a href="#"><span></span>数据库</a><ul></ul></li><li><a href="#"><span></span>CSS</a><ul></ul></li><li><a href="#"><span></span>Git</a><ul><li class="active"><a href="../../html/Git/git安装.html">git安装</a></li><li><a href="../../html/Git/git.html">git</a></li></ul></li><li><a href="#"><span></span>HTML</a><ul></ul></li><li><a href="#"><span></span>JAVASCRIPT</a><ul><li><a href="../../html/JAVASCRIPT/ES6.html">ES6</a></li><li><a href="../../html/JAVASCRIPT/webpack.html">webpack</a></li><li><a href="../../html/JAVASCRIPT/javascript.html">javascript</a></li><li><a href="../../html/JAVASCRIPT/react.html">react</a></li></ul></li><li><a href="#"><span></span>NODEJS</a><ul></ul></li><li><a href="#"><span></span>工具</a><ul></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0window安装">window安装</a></li><li><a href="#t1mac安装">mac安装</a></li><li><a href="#t2linux安装">linux安装</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0window&#x5B89;&#x88C5;">window&#x5B89;&#x88C5; <a href="#t0window&#x5B89;&#x88C5;"> # </a></h1>
+<h1 id="t1mac&#x5B89;&#x88C5;">mac&#x5B89;&#x88C5; <a href="#t1mac&#x5B89;&#x88C5;"> # </a></h1>
+<h1 id="t2linux&#x5B89;&#x88C5;">linux&#x5B89;&#x88C5; <a href="#t2linux&#x5B89;&#x88C5;"> # </a></h1>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+<script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script>
+    var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+    var count =  bar/26/2;
+    var barHeight = $('.page-toc').outerHeight()
+    $('.page-toc li').eq(0).children('a').addClass('red');
+    var arr = [];
+    $("h2,h3").each(function () {
+        arr.push($(this).position().top);
+    });
+    function dark(){
+        var top =  Math.abs($('.page-toc > ul').position().top);
+        var cur = $(document).scrollTop();
+        for(var i = arr.length; i >=0;i--){
+            if(arr[i]<=cur){
+                break;
+            }
+        }
+        if(i===-1){
+            i = 0;
+        }
+        $('.page-toc li a').removeClass('red');
+        $('.page-toc li').eq(i).children('a').addClass('red');
+        if(i> arr.length-count){
+            $(' .page-toc > ul').css('top',-(barHeight-bar));
+            return;
+        }
+        if(i>count){
+            $(' .page-toc > ul').css('top',-26*(i-count));
+        }else{
+            $(' .page-toc > ul').css('top',0);
+        }
+    }
+    $(window).on('scroll',dark);
+</script>
+</html>

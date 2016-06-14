@@ -30,12 +30,8 @@
             },
             {
                 "Git": [
-                    "git入门.md",
-                    {
-                        "课程": [
-                            "git安装.md"
-                        ]
-                    }
+                    "git安装.md",
+                    "git.md"
                 ]
             },
             {
@@ -43,19 +39,10 @@
             },
             {
                 "JAVASCRIPT": [
-                    {
-                        "课程": [
-                            "ES6.md",
-                            "webpack.md"
-                        ]
-                    },
-                    "导学.md",
-                    {
-                        "课程": [
-                            "ES6.md",
-                            "webpack.md"
-                        ]
-                    }
+                    "ES6.md",
+                    "webpack.md",
+                    "javascript.md",
+                    "react.md"
                 ]
             },
             {
