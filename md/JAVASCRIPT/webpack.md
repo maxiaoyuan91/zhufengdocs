@@ -98,7 +98,7 @@ $ cd build && touch index.html
 #### 2.5.4 目录结构
 ![目录结构](/static/img/webpacks.jpg)
 
-### 2.6 下载`webpack`和`webpack-dev-server`
+### 2.6 下载`webpack`
 ```
 $ npm install webpack --save-dev
 ```
